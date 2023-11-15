@@ -1,7 +1,7 @@
 import pytest
 import random
 from ..pages.base_page import BasePage  # дві крапки перед pages.base_page - абсолютний шлях до файлу
-from ..pages.main_page import MainPage
+from ..pages.main_page import MainPage  # дві крапки перед settings - абсолютний шлях до файлу
 from ..settings import sets  # дві крапки перед settings - абсолютний шлях до файлу
 
 
@@ -12,7 +12,7 @@ class TestMainPage:
 
     def setup_method(self):
         # pass
-        hash_name = "%032x" % random.getrandbits(128)
+        hash_name = "%016x" % random.getrandbits(64)
         self.email_for_subscribe = f"{hash_name}@mail.com"
 
     def test_get_main_page(self, browser):
@@ -33,8 +33,8 @@ class TestMainPage:
         page.is_elem_language_rus()
         page.is_but_entrance()
         page.is_but_cart()
-        # page.is_but_cart_noitems()
-        # page.is_but_cart_items()
+        # page.is_but_cart_noitems() # локатор коли немає вибраних товарів
+        # page.is_but_cart_items() # локатор коли є вибрані товари
         page.is_elem_phone_first()
         page.is_elem_phone_second()
         page.is_elem_phone_third()
@@ -56,31 +56,47 @@ class TestMainPage:
         page.is_elem_puzzle()
         page.is_elem_pictures_by_numbers()
         page.is_elem_slider_panel_first()
-        # page.is_elem_slotholder_left_arrow()
-        # page.is_elem_slotholder_right_arrow()
+        page.is_elem_slider_panel_second()
+        page.is_elem_slider_panel_third()
+        page.is_elem_slider_panel_fourth()
+        page.is_elem_slider_panel_fifth()
+        page.is_elem_slider_panel_sixth()
+        page.is_elem_slider_panel_seventh()
+        page.is_elem_slider_panel_eighth()
+        page.is_elem_slider_panel_ninth()
+        page.is_elem_slotholder_left_arrow()
+        page.is_elem_slotholder_right_arrow()
         page.is_elem_magic_alphabets_christmas_alphabet()
         page.is_elem_fairy_adventures_of_the_fairy_and_the_disappearing_bride()
+        # page.press_btn_popup_fiction_literature() # Перевірка клікабельности кнопки Художня література
 
+    def test_main_page_footer(self, browser):
+        self.link_to_cabinet = browser.current_url
+        page = MainPage(browser, self.link_to_cabinet)
+        page.is_elem_logo_footer()
+        page.is_elem_input_subscribe()
+        page.is_button_subscribe()
 
+    def test_main_page_subscribe_action(self, browser):
+        self.link_to_cabinet = browser.current_url
+        page = MainPage(browser, self.link_to_cabinet)
+        page.subscribe_action(self.email_for_subscribe)  # Передаємо згенерований імейл. див. рядок 16 цього файлу.
+        # page.is_alert_success_after_subscribe() # В моєму сайті немає повідомлення про успішне підписання на розсилку новин
 
-
-
-
-    #
-    # def test_main_page_footer(self, browser):
-    #     self.link_to_cabinet = browser.current_url
-    #     page = MainPage(browser, self.link_to_cabinet)
-    #     page.is_button_subscribe()
-    #     # page.is_elem_newsletter_input()
-    #     page.is_elem_footer_logo()
-    #
-    # def test_main_page_subscribe_action(self, browser):
-    #     self.link_to_cabinet = browser.current_url
-    #     page = MainPage(browser, self.link_to_cabinet)
-    #     page.subscribe_action(self.email_for_subscribe)  # Передаємо згенерований імейл. див. рядок 16 цього файлу.
-    #     page.is_alert_success_after_subscribe()
+#########################################################################################################################
+#                          EXAMPLES
 
 # pytest
 # pytest -s -v
 # pytest -s -v tests/test_main_page.py
 # pytest -s -v --browser_mode="gui"
+# pytest -s -v -m "main_page"
+#
+# pytest -s -v {chrome, headless}
+# pytest -s -v --browser_mode="gui" {chrome, gui}
+# pytest -s -v --browser_name="firefox" {firefox, headless}
+# pytest -s -v --browser_name="firefox" --browser_mode="gui"  {firefox, gui}
+# pytest -s -v -m "main_page" --browser_mode="gui"
+# pytest -s -v -m "main_page" --browser_name="firefox" --browser_mode="gui"
+# pytest -s -v tests/test_main_page.py --browser_mode="gui"
+# pytest -s -v tests/test_main_page.py --browser_name="firefox" --browser_mode="gui"
