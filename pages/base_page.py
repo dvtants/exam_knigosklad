@@ -111,6 +111,3 @@ class BasePage:
 
     def logout_from_cabinet(self):
         pass
-
-
-

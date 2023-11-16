@@ -58,16 +58,6 @@ class MainPage(base_page.BasePage):
             "The button 'cart' is not present"
         print(f"{inspect.currentframe().f_code.co_name} - OK")
 
-    # def is_but_cart_noitems(self): # локатор коли немає вибраних товарів
-    #     assert self.is_element_present(*locators.BasePageLocators.CART_NOITEMS), \
-    #         "The button 'cart' is not present"
-    #     print(f"{inspect.currentframe().f_code.co_name} - OK")
-
-    # def is_but_cart_items(self): # локатор коли є вибрані товари
-    #     assert self.is_element_present(*locators.BasePageLocators.CART_ITEMS), \
-    #         "The button 'cart' is not present"
-    #     print(f"{inspect.currentframe().f_code.co_name} - OK")
-
     def is_elem_phone_first(self):
         assert self.is_element_present(*locators.BasePageLocators.PHONE_FIRST), \
             "The element 'phone_first' is not present"
@@ -214,16 +204,10 @@ class MainPage(base_page.BasePage):
             "The element 'magic_alphabets_christmas_alphabet' is not present"
         print(f"{inspect.currentframe().f_code.co_name} - OK")
 
-    def is_elem_fairy_adventures_of_the_fairy_and_the_disappearing_bride(self):
-        assert self.is_element_present(
-            *locators.MainPageLocators.FAIRY_ADVENTURES_OF_THE_FAIRY_AND_THE_DISAPPEARING_BRIDE), \
-            "The element 'fairy_adventures_of_the_fairy_and_the_disappearing_bride' is not present"
+    def is_elem_сeramic_hearts(self):
+        assert self.is_element_present(*locators.MainPageLocators.CERAMIC_HEARTS), \
+            "The element 'сeramic_hearts' is not present"
         print(f"{inspect.currentframe().f_code.co_name} - OK")
-
-    # def press_btn_popup_fiction_literature(self): # Перевірка клікабельності кнопки Художня література
-    #     assert self.click_element(*locators.MainPageLocators.FICTION_LITERATURE), \
-    #         "The element 'fiction_literature' is not present or intractable"
-    #     print(f"{inspect.currentframe().f_code.co_name} - OK")
 
     def is_elem_logo_footer(self):
         assert self.is_element_present(*locators.BasePageLocators.LOGO_FOOTER), \

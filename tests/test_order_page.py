@@ -51,11 +51,15 @@ class TestOrderPage:
     def test_placing_an_order(self, browser):
         self.link_to_cabinet = browser.current_url
         page = OrderPage(browser, self.link_to_cabinet)
-        page.check_selected_products()
+        page.order_selected_products_entrance()
         page.explicit_wait(2)
-        # page.click_on_logo()
-        # page.explicit_wait(2)
-        page.order_selected_products()
+        page.order_selected_products_buyer_data()
+        page.explicit_wait(2)
+        page.order_selected_products_delivery_data()
+        page.explicit_wait(2)
+        page.order_selected_products_payment_data()
+        page.explicit_wait(2)
+        page.order_selected_products_finish()
         page.explicit_wait(2)
 
 # pytest -s -v -m "order_page" --browser_mode="gui"

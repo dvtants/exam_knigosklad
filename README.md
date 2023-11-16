@@ -82,6 +82,12 @@ The final project is compatible with Olena Bereza
     - тести можна запускати з GUI або в headless.
     - тести можна запускати в Chrome і FireFox.
 
+## 16.11.2013 Th Final project exam
+
+Захист фінального проєкту щодо тестування сайту книгарні
+
+
+
 
 
 

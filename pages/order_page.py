@@ -23,7 +23,7 @@ class OrderPage(base_page.BasePage):
             "The element BUY_VOHNIANI_BRAMY is not present or intractable"
         assert self.is_element_present(*locators.OrderPageLocators.SUCCESSFULLY_ADDED_CART), \
             "The element 'SUCCESSFULLY_ADDED_CART' is not present"
-        print(f"{inspect.currentframe().f_code.co_name} - OK")
+        print(f"\n{inspect.currentframe().f_code.co_name} - OK")
 
     def press_btn_continue_shop(self):
         assert self.click_element(*locators.OrderPageLocators.GO_TO_THE_STORE), \
@@ -46,7 +46,7 @@ class OrderPage(base_page.BasePage):
             "The element 'SUCCESSFULLY_ADDED_CART' is not present"
         print(f"{inspect.currentframe().f_code.co_name} - OK")
 
-    def check_selected_products(self):
+    def order_selected_products_entrance(self):
         assert self.hover_action(*locators.OrderPageLocators.CART_ITEMS_LOGO), \
             "The element 'CART_ITEMS' is not present"
         assert self.click_element(*locators.OrderPageLocators.CHECK_CART_LOGO), \
@@ -57,35 +57,61 @@ class OrderPage(base_page.BasePage):
             "The element 'BUTTON_ORDER_PRODUCTS' is not present or intractable"
         assert self.is_element_present(*locators.OrderPageLocators.TEXT_ZAMOVLENNIA), \
             "The element 'ZAMOVLENNIA' is not present"
-        print(f"{inspect.currentframe().f_code.co_name} - Ok")
+        print(f"\n{inspect.currentframe().f_code.co_name} - OK")
 
-    def order_selected_products(self):
-        # assert self.hover_action(*locators.OrderPageLocators.CART_ITEMS_LOGO), \
-        #     "The element 'CART_ITEMS_LOGO' is not present"
-        # assert self.click_element(*locators.OrderPageLocators.ORDER_CART_ITEMS_LOGO), \
-        #     "The element 'ORDER_CART_ITEMS_LOGO' is not present or intractable"
-        assert self.input_data(*locators.OrderPageLocators.INPUT_FIRSTNAME_ORDER, "JOHN"), \
+    def order_selected_products_buyer_data(self):
+        assert self.is_element_present(*locators.OrderPageLocators.INPUT_FIRSTNAME_ORDER), \
+            "The element 'INPUT_FIRSTNAME_ORDER' is not present"
+        assert self.input_data(*locators.OrderPageLocators.INPUT_FIRSTNAME_ORDER, "BRED"), \
             "The element 'INPUT_FIRSTNAME_ORDER' is not inserted"
-        assert self.input_data(*locators.OrderPageLocators.INPUT_LASTNAME_ORDER, "WICK"), \
+        self.explicit_wait(1)
+        assert self.is_element_present(*locators.OrderPageLocators.INPUT_LASTNAME_ORDER), \
+            "The element 'INPUT_LASTNAME_ORDER' is not present"
+        assert self.input_data(*locators.OrderPageLocators.INPUT_LASTNAME_ORDER, "PITT"), \
             "The element 'INPUT_LASTNAME_ORDER' is not inserted"
+        self.explicit_wait(1)
+        print(f"{inspect.currentframe().f_code.co_name} - OK")
+
+    def order_selected_products_delivery_data(self):
+        assert self.is_element_present(*locators.OrderPageLocators.NOVAPOSHTA_CITIES_CHOSEN), \
+            "The element 'NOVAPOSHTA_CITIES_CHOSEN' is not present"
         assert self.click_element(*locators.OrderPageLocators.NOVAPOSHTA_CITIES_CHOSEN), \
-            "The element 'NOVAPOSHTA_CITIES_CHOSEN' is not present or intractable"
+            "The element 'NOVAPOSHTA_CITIES_CHOSEN' is not intractable"
+        self.explicit_wait(1)
+        assert self.is_element_present(*locators.OrderPageLocators.CITY_DNIPRO), \
+            "The element 'CITY_DNIPRO' is not present"
         assert self.click_element(*locators.OrderPageLocators.CITY_DNIPRO), \
-            "The element 'CITY_DNIPRO' is not present or intractable"
-        assert self.click_element(*locators.OrderPageLocators.INPUT_DELIVERY_METHOD_PICK_UP_FROM_THE_STORE), \
-            "The element 'INPUT_DELIVERY_METHOD_PICK_UP_FROM_THE_STORE' is not present or intractable"
+            "The element 'CITY_DNIPRO' is not intractable"
+        self.explicit_wait(1)
+        assert self.is_element_present(*locators.OrderPageLocators.INPUT_DELIVERY_METHOD), \
+            "The element 'INPUT_DELIVERY_METHOD' is not present"
+        assert self.click_element(*locators.OrderPageLocators.INPUT_DELIVERY_METHOD), \
+            "The element 'INPUT_DELIVERY_METHOD' is not intractable"
+        self.explicit_wait(1)
+        print(f"{inspect.currentframe().f_code.co_name} - OK")
+
+    def order_selected_products_payment_data(self):
+        assert self.is_element_present(*locators.OrderPageLocators.INPUT_PAYMENT_ON_RECEIPT), \
+            "The element 'INPUT_PAYMENT_ON_RECEIPT' is not present"
         assert self.click_element(*locators.OrderPageLocators.INPUT_PAYMENT_ON_RECEIPT), \
-            "The element 'INPUT_PAYMENT_ON_RECEIPT' is not present or intractable"
+            "The element 'INPUT_PAYMENT_ON_RECEIPT' is not intractable"
+        self.explicit_wait(1)
+        print(f"{inspect.currentframe().f_code.co_name} - OK")
+
+    def order_selected_products_finish(self):
         assert self.input_data(*locators.OrderPageLocators.NOTICE, "SORRY TEST"), \
             "The element 'NOTICE' is not inserted"
+        self.explicit_wait(5)
         assert self.click_element(*locators.OrderPageLocators.ORDER_FINISH), \
-            "The element 'CHECK_CART' is not present or intractable"
+            "The element 'ORDER_FINISH' is not present or intractable"
         assert self.input_data(*locators.OrderPageLocators.INPUT_PHONE_ORDER, "671234567"), \
             "The element 'INPUT_PHONE_ORDER' is not inserted"
         assert self.click_element(*locators.OrderPageLocators.ORDER_FINISH), \
-            "The element 'CHECK_CART' is not present or intractable"
+            "The element 'ORDER_FINISH' is not present or intractable"
+        self.explicit_wait(5)
         assert self.is_element_present(*locators.OrderPageLocators.YOUR_ORDER_HAS_BEEN_ACCEPTED), \
             "The element 'YOUR_ORDER_HAS_BEEN_ACCEPTED' is not present"
+        self.explicit_wait(5)
         print(f"{inspect.currentframe().f_code.co_name} - Ok")
 
 #########################################################################################################################

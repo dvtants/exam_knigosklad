@@ -63,8 +63,9 @@ class MainPageLocators:  # Локатори елементів, які змін�
         By.XPATH, "//div[@class='row clearfix']//div[@class='tp-rightarrow tparrows default round']")
     MAGIC_ALPHABETS_CHRISTMAS_ALPHABET = (
         By.XPATH, "//div[@class='product-name']/a[@title='Чарівні абетки. Різдвяна абетка ']")
-    FAIRY_ADVENTURES_OF_THE_FAIRY_AND_THE_DISAPPEARING_BRIDE = (
-        By.XPATH, "//div[@class='product-name']/a[@title='Феєричні пригоди. Феї та зникла наречена ']")
+    CERAMIC_HEARTS = (
+        By.XPATH,
+        "//div[@id='home-slider-7212']//div[@class='owl-wrapper']//li[3]//div[@class='product-name']")
 
 
 class SignupLoginPageLocators:  # 10.11.2013 Th HomeWork:
@@ -148,14 +149,16 @@ class OrderPageLocators:  # 10.11.2013 Th HomeWork:
     INPUT_PHONE_ORDER = (By.XPATH, "//input[@name='billing[telephone]']")
     # TEXT_CHOOSE_CITY = (By.XPATH, "//div[text()='Виберіть місто']")
     NOVAPOSHTA_CITIES_CHOSEN = (By.XPATH, "//div[@id='novaposhta_cities_chosen']")
-    CITY_DNIPRO = (By.XPATH, "//li[@data-option-array-index='1']")
+    CITY_DNIPRO = (By.XPATH, "//ul[@class='chosen-results']/li[@data-option-array-index='1']")
     # LABEL_DELIVERY_METHOD_PICK_UP_FROM_THE_STORE = (By.XPATH, "//label[@for='s_method_sy_novaposhta_type_WarehouseWarehouse']")
-    INPUT_DELIVERY_METHOD_PICK_UP_FROM_THE_STORE = (By.XPATH, "//input[@id='s_method_freeshipping_freeshipping']")
+    # INPUT_DELIVERY_METHOD = (By.XPATH, "//input[@id='s_method_freeshipping_freeshipping']")
+    # INPUT_DELIVERY_METHOD = (By.XPATH, "//label[@for='s_method_freeshipping_freeshipping']")
+    INPUT_DELIVERY_METHOD = (By.XPATH, "//dd[@style='display: block;']//label[@for='s_method_freeshipping_freeshipping']")
     # LABEL_PAYMENT_ON_RECEIPT = (By.XPATH, "//label[@for='p_method_checkmo']")
     INPUT_PAYMENT_ON_RECEIPT = (By.XPATH, "//input[@id='p_method_checkmo']")
     NOTICE = (By.XPATH, "//textarea[@id='customer_comment']")
     ORDER_FINISH = (By.XPATH, "//button[@class='btn btn-primary btn-checkout opc-btn-checkout']")
-    YOUR_ORDER_HAS_BEEN_ACCEPTED = (By.XPATH, "//div[@class='page-title']/h1[text()='Ваше замовлення прийнято.']")
+    YOUR_ORDER_HAS_BEEN_ACCEPTED = (By.XPATH, "//h1[text()='Ваше замовлення прийнято.']")
 
 
 class CabinetPageLocators:

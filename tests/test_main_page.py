@@ -33,8 +33,6 @@ class TestMainPage:
         page.is_elem_language_rus()
         page.is_but_entrance()
         page.is_but_cart()
-        # page.is_but_cart_noitems() # локатор коли немає вибраних товарів
-        # page.is_but_cart_items() # локатор коли є вибрані товари
         page.is_elem_phone_first()
         page.is_elem_phone_second()
         page.is_elem_phone_third()
@@ -67,8 +65,7 @@ class TestMainPage:
         page.is_elem_slotholder_left_arrow()
         page.is_elem_slotholder_right_arrow()
         page.is_elem_magic_alphabets_christmas_alphabet()
-        page.is_elem_fairy_adventures_of_the_fairy_and_the_disappearing_bride()
-        # page.press_btn_popup_fiction_literature() # Перевірка клікабельности кнопки Художня література
+        page.is_elem_сeramic_hearts()
 
     def test_main_page_footer(self, browser):
         self.link_to_cabinet = browser.current_url
