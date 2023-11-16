@@ -8,7 +8,7 @@ class OrderPage(base_page.BasePage):
     def click_on_logo(self):
         assert self.click_element(*locators.BasePageLocators.LOGO), \
             "The element 'logo' is not present or intractable"
-        print(f"{inspect.currentframe().f_code.co_name} - Ok")
+        print(f"{inspect.currentframe().f_code.co_name} - OK")
 
     def add_to_cart_first_product(self):
         assert self.hover_action(*locators.MainPageLocators.FICTION_LITERATURE), \
@@ -28,7 +28,7 @@ class OrderPage(base_page.BasePage):
     def press_btn_continue_shop(self):
         assert self.click_element(*locators.OrderPageLocators.GO_TO_THE_STORE), \
             "The element cGO_TO_THE_STORE is not present or intractable"
-        print(f"{inspect.currentframe().f_code.co_name} - Ok")
+        print(f"{inspect.currentframe().f_code.co_name} - OK")
 
     def add_to_cart_second_product(self):
         assert self.click_element(*locators.OrderPageLocators.BUY_RIZDVIANA_ABETKA), \
@@ -72,22 +72,27 @@ class OrderPage(base_page.BasePage):
         self.explicit_wait(1)
         print(f"{inspect.currentframe().f_code.co_name} - OK")
 
-    def order_selected_products_delivery_data(self):
+    def order_selected_products_delivery_data_cities(self):
         assert self.is_element_present(*locators.OrderPageLocators.NOVAPOSHTA_CITIES_CHOSEN), \
             "The element 'NOVAPOSHTA_CITIES_CHOSEN' is not present"
         assert self.click_element(*locators.OrderPageLocators.NOVAPOSHTA_CITIES_CHOSEN), \
             "The element 'NOVAPOSHTA_CITIES_CHOSEN' is not intractable"
-        self.explicit_wait(1)
-        assert self.is_element_present(*locators.OrderPageLocators.CITY_DNIPRO), \
-            "The element 'CITY_DNIPRO' is not present"
-        assert self.click_element(*locators.OrderPageLocators.CITY_DNIPRO), \
-            "The element 'CITY_DNIPRO' is not intractable"
-        self.explicit_wait(1)
+        print(f"{inspect.currentframe().f_code.co_name} - OK")
+
+    def order_selected_products_delivery_data_dnipro(self):
+        assert self.is_element_present(*locators.OrderPageLocators.DNIPRO), \
+            "The element 'DNIPRO' is not present"
+        assert self.click_element(*locators.OrderPageLocators.DNIPRO), \
+            "The element 'DNIPRO' is not intractable"
+        self.explicit_wait(2)
+        print(f"{inspect.currentframe().f_code.co_name} - OK")
+
+    def order_selected_products_delivery_data_method(self):
         assert self.is_element_present(*locators.OrderPageLocators.INPUT_DELIVERY_METHOD), \
             "The element 'INPUT_DELIVERY_METHOD' is not present"
         assert self.click_element(*locators.OrderPageLocators.INPUT_DELIVERY_METHOD), \
             "The element 'INPUT_DELIVERY_METHOD' is not intractable"
-        self.explicit_wait(1)
+        self.explicit_wait(2)
         print(f"{inspect.currentframe().f_code.co_name} - OK")
 
     def order_selected_products_payment_data(self):
@@ -95,7 +100,7 @@ class OrderPage(base_page.BasePage):
             "The element 'INPUT_PAYMENT_ON_RECEIPT' is not present"
         assert self.click_element(*locators.OrderPageLocators.INPUT_PAYMENT_ON_RECEIPT), \
             "The element 'INPUT_PAYMENT_ON_RECEIPT' is not intractable"
-        self.explicit_wait(1)
+        self.explicit_wait(2)
         print(f"{inspect.currentframe().f_code.co_name} - OK")
 
     def order_selected_products_finish(self):
